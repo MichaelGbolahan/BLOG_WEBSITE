@@ -1,0 +1,37 @@
+{% extends 'dashboard/index.html' %}
+{% block title %} Edit Profile {% endblock %}
+
+{% block content %}
+{% from 'formhelpers.html' import render_field %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% from 'formhelpers.html' import render_field %}
+            {% include 'message.html' %}
+            <div class="">
+                <h2 class="text-danger text-center">Users Registration</h2>
+                <form action={{request.path}} method="post" enctype="multipart/form-data">
+                {{form.hidden_tag()}}
+                    <div>
+                        <!--{{form.name.label(class='form-label')}}-->
+                        {{render_field(form.name,class='form-control')}}
+                    </div>
+                    <div>
+                        <!--{{form.username.label(class='form-label')}}-->
+                        {{render_field(form.username,class='form-control')}}
+                    </div>
+                    <div>
+                        {{form.profile.label(class='form-label')}}
+                        {{form.profile(class='form-control')}}
+                    </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}

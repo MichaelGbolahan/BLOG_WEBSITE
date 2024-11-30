@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="pt-3">
+                {% include 'message.html' %}
+                <form action="{{url_for('login')}}" method="post">
+                    <h2 class="text-danger text-center">User Login</h2>
+                    {{form.hidden_tag()}}
+                    <div class="">
+                        {{form.username.label(class='form-label')}}
+                        {{form.username(class='form-control')}}
+                    </div>
+                    <div class="">
+                        {{form.password.label(class='form-label')}}
+                        {{form.password(class='form-control')}}
+                    </div>
+                    {{form.submit(class='btn btn-primary mt-3')}}
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{% endblock %}
